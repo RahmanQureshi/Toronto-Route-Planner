@@ -16,4 +16,4 @@ See live demo [here](http://toronto-route-planner.herokuapp.com/).
  - `python pickletorontoboundaries.py`
 4. Run using `python app.py`
 
-(Credit to Johnson Zhong and Zhuowei Zhang for the clever pickling trick that enables faster startup time.)
+(Credit to Johnson Zhong and Zhuowei Zhang for the clever pickling trick that enables faster startup time)
