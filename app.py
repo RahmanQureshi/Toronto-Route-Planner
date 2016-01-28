@@ -12,7 +12,7 @@ def send_js(jsFileName):
     
 @app.route('/css/<path:cssFileName>')
 def send_css(cssFileName):
-    return send_from_directory('js', cssFileName)
+    return send_from_directory('css', cssFileName)
 
 @app.route('/img/<path:imgFileName>')
 def send_img(imgFileName):
