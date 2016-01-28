@@ -72,6 +72,11 @@ $('#route-calculator-form').submit(function (e){
         $('#loading').css('display', 'none');
         $('#error').css('display', 'none');
         $('#distance-box').html(data['length'].toFixed(2) + 'km')
+        width = $(window).width();
+        if (width < 798)
+        {
+          $('#text-directions-box').css('height', 'auto')
+        }
         appendTextDirections(data['pretty-driving-directions']);
         currentDisplayedRoute = setPolyLine(data['latLngList'], '#FF0000');
         latLng1 = {'lat':data['latLngList'][0]['lat'], 'lng':data['latLngList'][0]['lng']};
@@ -96,9 +101,9 @@ $(window).resize(function () {
   $('#map').css('height', $(window).height() - $('#header').outerHeight() + 'px');
   width = $(window).width();
   if(width<798) {
-    $('#side-bar').collapse('hide');
+    $('#text-directions-box').css('height', 'auto');
   } else {
-    $('#side-bar').collapse('show');
+    $('#text-directions-box').css('height', '325px');
   }
 });
 
@@ -107,5 +112,13 @@ $('#collapseButton').click(function () {
 });
 
 /** INITIALIZATION **/
-$('#map').css('height', $(window).height() - $('#header').outerHeight() + 'px');
-google.maps.event.addDomListener(window, 'load', initMap);
+(function init() {
+  $('#side-bar').collapse('show');
+  $('#map').css('height', $(window).height() - $('#header').outerHeight() + 'px');
+  width = $(window).width();
+  if (width<798)
+  {
+    $('#text-directions-box').css('height', 'auto');
+  }
+  google.maps.event.addDomListener(window, 'load', initMap);
+})();
