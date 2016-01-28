@@ -1,0 +1,5 @@
+networkx==1.9.1
+Flask==0.10.1
+pyshp==1.2.3
+numpy==1.9.2
+haversine==0.4.4
